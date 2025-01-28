@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetAdopt - Find Your Furry Friend</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Move all styles to an external stylesheet -->
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-paw"></i>
+                <span>Pawwwz</span>
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/adopt">Adopt a Pet</a>
+                <a href="/contact">Contact Us</a>
+                <a href="/login">Login</a>
+                <button class="donate-btn">Donate</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="/api/placeholder/1920/600" alt="Dogs and cats" class="hero-image">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Find Your Furry Friend Today</h1>
+                    <p>Give a loving home to a pet in need. Browse through our adorable cats and dogs waiting for their forever families.</p>
+                    <button class="get-started-btn">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for pets...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </section>
+
+        <section class="featured-pets">
+            <h2 class="section-title">Featured Pets</h2>
+            <div class="pets-grid" id="petsGrid">
+                <!-- Pet cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">Our Mission</h2>
+                <p>We believe every pet deserves a loving home. Our platform connects adorable cats and dogs with caring families, making the adoption process simple and rewarding.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>1,234+</h3>
+                        <p>Pets Adopted</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>98%</h3>
+                        <p>Happy Families</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>50+</h3>
+                        <p>Partner Shelters</p>
+                    </div>
+                </div>
+                <button class="get-started-btn">Join Our Mission</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Connecting pets with loving homes since 2024.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/faq">FAQs</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> info@petadopt.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 PetAdopt. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Featured pets data
+        const featuredPets = [
+            { id: 1, name: 'Buddy', age: '2 years', type: 'Dog', image: '/api/placeholder/300/200' },
+            { id: 2, name: 'Luna', age: '1 year', type: 'Cat', image: '/api/placeholder/300/200' },
+            { id: 3, name: 'Max', age: '3 years', type: 'Dog', image: '/api/placeholder/300/200' }
+        ];
+
+        // Generate pet cards dynamically
+        const petsGrid = document.getElementById('petsGrid');
+
+        featuredPets.forEach(pet => {
+            const petCard = document.createElement('div');
+            petCard.className = 'pet-card';
+            petCard.innerHTML = `
+                <img src="${pet.image}" alt="${pet.name}" class="pet-image">
+                <div class="pet-info">
+                    <h3>${pet.name}</h3>
+                    <p>Age: ${pet.age}</p>
+                    <p>Type: ${pet.type}</p>
+                    <button class="view-details-btn">View Details</button>
+                </div>
+            `;
+            petsGrid.appendChild(petCard);
+        });
+    </script>
+</body>
+</html>
